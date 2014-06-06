@@ -5,8 +5,8 @@
 <% end %>
 
 <% if @mob_data %>
-  <table id="mob_data">
-    <tr>
+  <table id="mob-data">
+    <tr class="data-headers">
       <th>ID</th>
       <th>Sprite Name</th>
       <th>kRO Name</th>
@@ -65,66 +65,23 @@
       <th>DropCardID</th>
       <th>DropCardPer</th>
     </tr>
-  <% @mob_data.each do |mob| %>
-    <tr>
-      <td><%= mob[0] %></td>
-      <td><%= mob[1] %></td>
-      <td><%= mob[2] %></td>
-      <td><%= mob[3] %></td>
-      <td><%= mob[4] %></td>
-      <td><%= mob[5] %></td>
-      <td><%= mob[6] %></td>
-      <td><%= mob[7] %></td>
-      <td><%= mob[8] %></td>
-      <td><%= mob[9] %></td>
-      <td><%= mob[10] %></td>
-      <td><%= mob[11] %></td>
-      <td><%= mob[12] %></td>
-      <td><%= mob[13] %></td>
-      <td><%= mob[14] %></td>
-      <td><%= mob[15] %></td>
-      <td><%= mob[16] %></td>
-      <td><%= mob[17] %></td>
-      <td><%= mob[18] %></td>
-      <td><%= mob[19] %></td>
-      <td><%= mob[20] %></td>
-      <td><%= mob[21] %></td>
-      <td><%= mob[22] %></td>
-      <td><%= mob[23] %></td>
-      <td><%= mob[24] %></td>
-      <td><%= mob[25] %></td>
-      <td><%= mob[26] %></td>
-      <td><%= mob[27] %></td>
-      <td><%= mob[28] %></td>
-      <td><%= mob[29] %></td>
-      <td><%= mob[30] %></td>
-      <td><%= mob[31] %></td>
-      <td><%= mob[32] %></td>
-      <td><%= mob[33] %></td>
-      <td><%= mob[34] %></td>
-      <td><%= mob[35] %></td>
-      <td><%= mob[36] %></td>
-      <td><%= mob[37] %></td>
-      <td><%= mob[38] %></td>
-      <td><%= mob[39] %></td>
-      <td><%= mob[40] %></td>
-      <td><%= mob[41] %></td>
-      <td><%= mob[42] %></td>
-      <td><%= mob[43] %></td>
-      <td><%= mob[44] %></td>
-      <td><%= mob[45] %></td>
-      <td><%= mob[46] %></td>
-      <td><%= mob[47] %></td>
-      <td><%= mob[48] %></td>
-      <td><%= mob[49] %></td>
-      <td><%= mob[50] %></td>
-      <td><%= mob[51] %></td>
-      <td><%= mob[52] %></td>
-      <td><%= mob[53] %></td>
-      <td><%= mob[54] %></td>
-      <td><%= mob[55] %></td>
-      <td><%= mob[56] %></td>
-    </tr>
-  <% end %>
+  </table>
+  <table id="mob-data2">
+    <% @mob_data.each do |mob| %>
+      <tr class="data-row">
+        <% (0...mob.length).each do |i| %>
+          <td><%= mob[i] %></td>
+        <% end %>
+      </tr>
+    <% end %>
   </table>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('.data-row').on('click', function() {
+      $('.data-row.selected').removeClass('selected');
+      $(this).addClass('selected');
+    });
+  });
+</script>
