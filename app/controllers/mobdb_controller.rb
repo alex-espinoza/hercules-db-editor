@@ -3,7 +3,7 @@ class MobdbController < ApplicationController
     database = params[:database]
     
     if !['text/plain', 'application/octet-stream'].include?(database.content_type)
-      return redirect_to mob_db_edit_path, alert: 'Please upload either a .conf or .txt mob db file.'
+      return render action: 'mob_data', alert: 'Please upload either a .conf or .txt mob db file.'
     end
 
     @mob_data = []
@@ -13,9 +13,6 @@ class MobdbController < ApplicationController
       @mob_data << row
     end
 
-    redirect_to mob_db_edit_path(@mob_data)
-  end
-
-  def edit
+    render action: 'mob_data'
   end
 end
