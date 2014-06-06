@@ -83,5 +83,17 @@
       $('.data-row.selected').removeClass('selected');
       $(this).addClass('selected');
     });
+
+    var elementPosition2 = $('#mob-data').offset();
+    $(window).scroll(function() {
+      var elementPosition2 = $('#mob-data').offset();
+      console.log(elementPosition2);
+      if ($(window).scrollTop() > elementPosition2.top) {
+        $('#mob-data').css('position', 'fixed').css('top', '0');
+      } else {
+        $('#mob-data').css('position', 'static');
+      }
+    });
+
   });
 </script>
