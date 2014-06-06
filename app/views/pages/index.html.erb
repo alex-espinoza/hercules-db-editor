@@ -2,3 +2,7 @@
 
 <p>Please make a copy of your conf or txt files before uploading and editing.</p>
 
+<%= form_tag 'mob_db/upload', multipart: true do %>
+  <label for='database'>Upload conf/txt file</label> <%= file_field_tag 'database' %>
+  <%= submit_tag 'Upload' %>
+<% end %>
