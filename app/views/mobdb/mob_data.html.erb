@@ -71,7 +71,7 @@
       <% @mob_data.each do |mob| %>
         <tr>
           <% (0...mob.length).each do |i| %>
-            <td><%= mob[i] %></td>
+            <td class="data-field"><%= mob[i] %></td>
           <% end %>
         </tr>
       <% end %>
@@ -86,6 +86,19 @@
       $(this).addClass('selected');
     });
 
+    $('.data-field').on('click', function() {
+      $('tbody tr.selected').removeClass('selected');
+      $(this).parent().addClass('selected');
+    });
+
     $('table').floatThead();
+
+    $('.data-field').editable(function(value, settings) {
+      return value;
+    }, {
+      type: 'text',
+      cssclass: 'field-input',
+      height: 20
+    })
   });
 </script>

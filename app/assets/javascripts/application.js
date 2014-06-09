@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.floatthead.min
+//= require jquery-floatthead.min
+//= require jquery-jeditable.min
 //= require_tree .
