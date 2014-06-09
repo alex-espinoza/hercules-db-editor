@@ -1,30 +1,28 @@
-#mob-data {
+table {
   border-collapse: collapse;
-  //position: fixed;
 
-  tr {
+  thead tr {
+    border-bottom: 2px solid #000; 
+    border-top: 2px solid #000;
+
     th { 
+      padding: 7px 5px;
       background: #fff;
       min-width: 105px; 
       padding: 7px 5px;
     }
-    td { 
-      text-align: center; 
+  }
+
+  tbody tr {
+    td {
+      padding: 7px 5px;
+      min-width: 105px;
+      text-align: center;
     }
+
     &:nth-child(even) { background: #D8EEF2; }
     &:nth-child(odd) { background: #EDF1F2; }
   }
 }
-
-.data-headers { 
-  border-bottom: 2px solid #000; 
-  border-top: 2px solid #000;
-}
-
-.data-row { 
-  td {
-    padding: 7px 5px;
-  }
-}
-
+ 
 .selected { background: #F5F4CE !important; }

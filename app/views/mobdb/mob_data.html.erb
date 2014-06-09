@@ -5,95 +5,87 @@
 <% end %>
 
 <% if @mob_data %>
-  <table id="mob-data">
-    <tr class="data-headers">
-      <th>ID</th>
-      <th>Sprite Name</th>
-      <th>kRO Name</th>
-      <th>iRO Name</th>
-      <th>Level</th>
-      <th>HP</th>
-      <th>SP</th>
-      <th>EXP</th>
-      <th>JEXP</th>
-      <th>Range 1</th>
-      <th>ATK 1</th>
-      <th>ATK 2</th>
-      <th>DEF</th>
-      <th>MDEF</th>
-      <th>STR</th>
-      <th>AGI</th>
-      <th>VIT</th>
-      <th>INT</th>
-      <th>DEX</th>
-      <th>LUK</th>
-      <th>Range 2</th>
-      <th>Range 3</th>
-      <th>Scale</th>
-      <th>Race</th>
-      <th>Element</th>
-      <th>Mode</th>
-      <th>Speed</th>
-      <th>aDelay</th>
-      <th>aMotion</th>
-      <th>dMotion</th>
-      <th>MEXP</th>
-      <th>MVP1ID</th>
-      <th>MVP1Per</th>
-      <th>MVP2ID</th>
-      <th>MVP2Per</th>
-      <th>MVP3ID</th>
-      <th>MVP3Per</th>
-      <th>Drop1ID</th>
-      <th>Drop1Per</th>
-      <th>Drop2ID</th>
-      <th>Drop2Per</th>
-      <th>Drop3ID</th>
-      <th>Drop3Per</th>
-      <th>Drop4ID</th>
-      <th>Drop4Per</th>
-      <th>Drop5ID</th>
-      <th>Drop5Per</th>
-      <th>Drop6ID</th>
-      <th>Drop6Per</th>
-      <th>Drop7ID</th>
-      <th>Drop7Per</th>
-      <th>Drop8ID</th>
-      <th>Drop8Per</th>
-      <th>Drop9ID</th>
-      <th>Drop9Per</th>
-      <th>DropCardID</th>
-      <th>DropCardPer</th>
-    </tr>
-  </table>
-  <table id="mob-data2">
-    <% @mob_data.each do |mob| %>
-      <tr class="data-row">
-        <% (0...mob.length).each do |i| %>
-          <td><%= mob[i] %></td>
-        <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sprite Name</th>
+        <th>kRO Name</th>
+        <th>iRO Name</th>
+        <th>Level</th>
+        <th>HP</th>
+        <th>SP</th>
+        <th>EXP</th>
+        <th>JEXP</th>
+        <th>Range 1</th>
+        <th>ATK 1</th>
+        <th>ATK 2</th>
+        <th>DEF</th>
+        <th>MDEF</th>
+        <th>STR</th>
+        <th>AGI</th>
+        <th>VIT</th>
+        <th>INT</th>
+        <th>DEX</th>
+        <th>LUK</th>
+        <th>Range 2</th>
+        <th>Range 3</th>
+        <th>Scale</th>
+        <th>Race</th>
+        <th>Element</th>
+        <th>Mode</th>
+        <th>Speed</th>
+        <th>aDelay</th>
+        <th>aMotion</th>
+        <th>dMotion</th>
+        <th>MEXP</th>
+        <th>MVP1ID</th>
+        <th>MVP1Per</th>
+        <th>MVP2ID</th>
+        <th>MVP2Per</th>
+        <th>MVP3ID</th>
+        <th>MVP3Per</th>
+        <th>Drop1ID</th>
+        <th>Drop1Per</th>
+        <th>Drop2ID</th>
+        <th>Drop2Per</th>
+        <th>Drop3ID</th>
+        <th>Drop3Per</th>
+        <th>Drop4ID</th>
+        <th>Drop4Per</th>
+        <th>Drop5ID</th>
+        <th>Drop5Per</th>
+        <th>Drop6ID</th>
+        <th>Drop6Per</th>
+        <th>Drop7ID</th>
+        <th>Drop7Per</th>
+        <th>Drop8ID</th>
+        <th>Drop8Per</th>
+        <th>Drop9ID</th>
+        <th>Drop9Per</th>
+        <th>DropCardID</th>
+        <th>DropCardPer</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @mob_data.each do |mob| %>
+        <tr>
+          <% (0...mob.length).each do |i| %>
+            <td><%= mob[i] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% end %>
 
 <script type="text/javascript">
   $(function() {
-    $('.data-row').on('click', function() {
-      $('.data-row.selected').removeClass('selected');
+    $('tbody tr').on('click', function() {
+      $('tbody tr.selected').removeClass('selected');
       $(this).addClass('selected');
     });
 
-    var elementPosition2 = $('#mob-data').offset();
-    $(window).scroll(function() {
-      var elementPosition2 = $('#mob-data').offset();
-      console.log(elementPosition2);
-      if ($(window).scrollTop() > elementPosition2.top) {
-        $('#mob-data').css('position', 'fixed').css('top', '0');
-      } else {
-        $('#mob-data').css('position', 'static');
-      }
-    });
-
+    $('table').floatThead();
   });
 </script>
